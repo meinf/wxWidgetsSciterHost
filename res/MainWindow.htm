@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Real title</title>
+    <style type="text/css">
+        body {
+            margin:0;   /* There are default margin */
+        }
+    </style>
+    <script type="text/tiscript">
+        function self.ready()
+        {
+            self.on("click", "a[href^=http]", function(evt) {
+                var href = this.attributes["href"];
+                Sciter.launch(href); // will open the url in default browser
+                return true; // consume the event
+            });
+        }
+        function self.closing()
+        {
+        }
+        
+    </script>
+  </head>
+<body>
+    <div>
+        <a href="https://sciter.com/">Sciter</a>
+    </div>
+</body>
+</html>
