@@ -3,27 +3,37 @@
     <title>Real title</title>
     <style type="text/css">
         body {
-            margin:0;   /* There are default margin */
+            //margin:0;   // Uncomment this to remove default margin
+            font-size: 14pt;
         }
+        button {
+            height: 36px;
+            width: 96px;
+        }
+        button > * { margin: * 0; }
     </style>
     <script type="text/tiscript">
         function self.ready()
         {
-            self.on("click", "a[href^=http]", function(evt) {
+            self.on("click", "a[href^=http]", function(evt)
+            {
                 var href = this.attributes["href"];
-                Sciter.launch(href); // will open the url in default browser
-                return true; // consume the event
+                Sciter.launch(href);
+                return true;
+            });
+            self.on("click", "button", function()
+            {
+                $(#reload).value = "Press F5 to reload UI";
+                $(button).style["display"] = "none";
+                return true;
             });
         }
-        function self.closing()
-        {
-        }
-        
     </script>
   </head>
 <body>
-    <div>
-        <a href="https://sciter.com/">Sciter</a>
-    </div>
+    <a href="https://sciter.com/">Sciter</a> is an embeddable HTML/CSS/script engine.
+    <div>This is just a sample of integration Sciter with wxWidgets.</div>
+    <button>Click me</button>
+    <div #reload></div>
 </body>
 </html>
